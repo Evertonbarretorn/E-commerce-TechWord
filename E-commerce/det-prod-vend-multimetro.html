@@ -9,12 +9,49 @@
     <title>Detalhe</title>
 </head>
 <body class="bg-secondary-subtle">
-    <nav class="navbar navbar-expand-lg custom bg-dark navbar-dark fixed-top" style="height: 4em;">
+    <nav class="navbar navbar-expand-lg custom bg-dark navbar-dark fixed-top" style="height: 4em;; top: 0; left: 0;  width: 100%; ">
         <div class="container-fluid col-11">
-            <a class="navbar-brand fs-1 text-uppercase" href="Home.html">Tech Word</a>>
-            <h1 class="navbar-brand fs-1 text-dark"></h1>
-            </button>
+          <a class="navbar-brand fs-1" href="Home.html">Tech</a>
+          <a class="navbar-brand-2 fs-1" style="text-decoration: none; color: #fd7e14; margin-right: 2em;" href="Home.html">Word</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-0">
+              <li class="nav-item">
+                <a class="flex nav-link active outline-warning" aria-current="page" href="produtos.html">Produtos</a>
+              </li>
+  
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" >Categorias</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="smartphones.html">Smartphones</a></li>
+                  <li><a class="dropdown-item" href="notebooks.html">Notebooks</a></li>
+                  <li><a class="dropdown-item" href="cameras.html">Cameras</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-item">
+                <a class="flex nav-link active" aria-current="page" href="sobre.html">Sobre</a>
+              </li>
+  
+              <div class="input-group flex-nowrap" style="height: 1.7em; margin-top: 0.5em;">
+                <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Username" aria-describedby="addon-wrapping">
+                <button  type="submit" class="input-group-text" id="addon-wrapping"><i class='bx bx-search-alt'style="height: 2em; width: 2em; margin-top: 1em;"></i></button>
+              </div>
+  
+            </ul>
+              <figure class="figure">
+                <a href="carrinho.html"><i class='bx bxs-shopping-bags'style="color: #fd7e14; font-size: 30px; margin-right: 1em; margin-top: 0.7em;"></i></a>
+              </figure>
+  
+              <form class="d-flex" role="button">
+              <a href="login.html" role="button"><button type="button" class="btn text-light" style="background-color: #fd7e14;">Entrar </button></a>
+            </form>
+          </div>
         </div>
+      </nav>
     </nav>
     <br><br><br><br>
 
@@ -68,6 +105,7 @@
             <p>3 estrelas ---------(3)</p>
         </div>
     </div>
+    <br><br><br><br>
 
 
     <footer class="bg-dark py-10 mt-10">
