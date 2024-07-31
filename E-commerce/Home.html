@@ -11,6 +11,30 @@
   </head>
 
   <body class="bg-secondary-subtle" style="margin: 0;">
+
+    <script>
+      class Card extends HTMLElement {
+        constructor() {
+          super();
+        }
+      
+        connectedCallback() {
+          const div = document.createElement("div");
+          div.className = "card";
+          div.innerHTML = `
+            <img src="${this.getAttribute("img")}" class="card-img-top" alt="${this.getAttribute("title")}">
+            <div class="card-body">
+              <h5 class="card-title">${this.getAttribute("title")}</h5>
+              <h3 class="card-text">${this.getAttribute("value")}</h3>
+              <a href="carrinho.html" class="btn btn-success">ADD AO CARRINHO</a>
+            </div>
+          `;
+          this.appendChild(div);
+        }
+      }
+      
+      customElements.define("card-item", Card);
+  </script>
    
     <nav class="navbar navbar-expand-lg custom bg-dark navbar-dark fixed-top" style="height: 4em;; top: 0; left: 0;  width: 100%; ">
       <div class="container-fluid col-11">
@@ -26,13 +50,8 @@
               <a class="flex nav-link active outline-warning" aria-current="page" href="produtos.html">Produtos</a>
             </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" >Categorias</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="smartphones.html">Smartphones</a></li>
-                <li><a class="dropdown-item" href="notebooks.html">Notebooks</a></li>
-                <li><a class="dropdown-item" href="cameras.html">Cameras</a></li>
-              </ul>
+            <li class="nav-item">
+            <a class="flex nav-link active" aria-current="page" href="categoria.html">Categorias</a>
             </li>
 
             <li class="nav-item">
@@ -106,115 +125,96 @@
 
     <br><br><br>
 
-    <div class="mais vendidos">
-      <h1 class="text-uppercase" style="font-size: large;font-family: Georgia, 'Times New Roman', Times, serif; color: black; margin-left: 60px;">ITENS MAIS VENDIDOS</h1>
-      <br><br><br>
+    <div class="container">
+      <div class="mais_vendidos">
+        <h1 class="text-uppercase" style="font-size: large; font-family: Georgia, 'Times New Roman', Times, serif; color: black; margin-left: 60px;">
+          ITENS MAIS VENDIDOS
+        </h1>
+        <br><br><br>
 
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/monitor-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Monitor Gamer</h5>
-          <p class="card-text">R$ 600,00<p>
-          <a href="det-prod-vend-monitor.html" class="btn btn-primary">Ver Mais</a>
+        <div class="row">
+          <div class="col-md-3">
+            <card-item
+              img="IMG/cameracanon-camera.jpg"
+              title="Camara digital Canon"
+              value="R$ 2.300,00">
+            </card-item>
+          </div>
+
+          <div class="col-md-3">
+            <card-item
+              img="IMG/cameracanon-camera.jpg"
+              title="Camera digital Canon mdl-01"
+              value="R$ 1.350,00">
+            </card-item>
+          </div>
+
+          <div class="col-md-3">
+            <card-item
+              img="IMG/cameracanon-camera.jpg"
+              title="Camera digital Canon mdl-02"
+              value="R$ 1.600,00">
+            </card-item>
+          </div>
+
+          <div class="col-md-3">
+            <card-item
+              img="IMG/cameracanon-camera.jpg"
+              title="Camara digital Canon mdl-04"
+              value="R$ 1.800,00">
+            </card-item>
+          </div>
+
         </div>
       </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/fone_sem_fio-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Headfone</h5>
-
-          <p class="card-text">R$ 300,00</p>
-          <a href="det-prod-vend-fone.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/notebook-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Notebook</h5>
-          <p class="card-text">R$ 2000,00</p>
-          <a href="det-prod-vend-notebook.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/bombox-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Bombox</h5>
-          <p class="card-text">R$ 700,00</p>
-          <a href="det-prod-vend-bombox.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/multimetro-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Multimetro</h5>
-          <p class="card-text">R$ 300,00</p>
-          <a href="det-prod-vend-multimetro.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
     </div>
+    
     <br><br><br>
 
-    <div class="promoções">
-      <h2 class="text-uppercase" style="font-size: large; font-family: Georgia, 'Times New Roman', Times, serif; color: black; margin-left: 60px;">PROMOÇÕES DE NATAL</h2>
-      <br><br><br>
+    <div class="container">
+      <div class="mais_vendidos">
+        <h1 class="text-uppercase" style="font-size: large; font-family: Georgia, 'Times New Roman', Times, serif; color: black; margin-left: 60px;">
+          ITENS NA PROMOÇÃO
+        </h1>
+        <br><br><br>
 
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/celular-produto.jpg" class="card-img-top" style="height: 15rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Xiaome Redmi Note 12</h5>
-          <p class="card-text text-decoration-line-through text-danger" style="display: inline-block;">R$ 1000,00</p>
-          <p class="card-text text-success" style="display: inline-block;">R$ 999,00</p>
-          <a href="prom-ntl-smartphone.html" class="btn btn-primary">Ver Mais</a>
+        <div class="row">
+          <div class="col-md-3">
+            <card-item
+              img="IMG/galaxya23-smartphone.jpg"
+              title="Smartphone Galaxy A23"
+              value="R$ 2.300,00">
+            </card-item>
+          </div>
+
+          <div class="col-md-3">
+            <card-item
+              img="IMG/galaxya34-smartphone.jpg"
+              title="Smartphone Galaxy A34"
+              value="R$ 2.800,00">
+            </card-item>
+          </div>
+
+          <div class="col-md-3">
+            <card-item
+              img="IMG/galaxya23-smartphone.jpg"
+              title="Smartphone Galaxy A23"
+              value="R$ 2.300,00">
+            </card-item>
+          </div>
+
+          <div class="col-md-3">
+            <card-item
+              img="IMG/galaxya34-smartphone.jpg"
+              title="Smartphone Galaxy A34"
+              value="R$ 2.800,00">
+            </card-item>
+          </div>
+
         </div>
       </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/echopop-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Echo Pop</h5>
-          <p class="card-text text-decoration-line-through text-danger" style="display: inline-block;">R$ 2300,00</p>
-          <p class="card-text text-success" style="display: inline-block;">R$ 2000,00</p>
-          <a href="prom-ntl-echopop.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/playstation4-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Playstation/</h5>
-          <p class="card-text text-decoration-line-through text-danger" style="display: inline-block;">R$ 2500,00</p>
-          <p class="card-text text-success" style="display: inline-block;">R$ 2300,00</p>
-          <a href="prom-ntl-playstatio.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/roteador-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Roteador</h5>
-          <p class="card-text text-decoration-line-through text-danger" style="display: inline-block;">R$ 500,00</p>
-          <p class="card-text text-success" style="display: inline-block;">R$ 200,00</p>
-          <a href="prom-ntl-roteador.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-        <img src="IMG/teclado-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Teclado Gamer</h5>
-          <p class="card-text text-decoration-line-through text-danger" style="display: inline-block;">R$ 1500,00</p>
-          <p class="card-text text-success" style="display: inline-block;">R$ 100,00</p>
-          <a href="prom-ntl-teclado.html" class="btn btn-primary">Ver mais</a>
-        </div>
-      </div>
-
     </div>
-    </div>
+    
     <br><br><br>
 
   <footer class="bg-dark py-10 mt-10">
