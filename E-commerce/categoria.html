@@ -8,6 +8,15 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Categorias</title>
 </head>
+<style>
+  .img-size {
+    width: 200px;
+    height: 190px;
+    background-color: gray;
+    margin-left: 50px;
+    margin-top: 5px;
+  }
+</style>
 <body class="bg-secondary-subtle">
 
   <script>
@@ -20,7 +29,7 @@
         const div = document.createElement("div");
         div.className = "card";
         div.innerHTML = `
-          <img src="${this.getAttribute("img")}" class="card-img-top" alt="${this.getAttribute("title")}">
+          <img src="${this.getAttribute("img")}" class="card-img-top img-size" alt="${this.getAttribute("title")}">
           <div class="card-body">
             <h5 class="card-title">${this.getAttribute("title")}</h5>
             <h3 class="card-text">${this.getAttribute("value")}</h3>

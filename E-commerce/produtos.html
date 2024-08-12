@@ -7,7 +7,46 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Produtos</title>
 </head>
+<style>
+  .img-size {
+    width: 200px;
+    height: 190px;
+    background-color: gray;
+    margin-left: 50px;
+    margin-top: 5px;
+  }
+  .container{
+    margin-left: 15rem;
+  }
+</style>
+
 <body class="bg-secondary-subtle">
+
+  <script>
+    class Card extends HTMLElement {
+      constructor() {
+        super();
+      }
+    
+      connectedCallback() {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+          <img src="${this.getAttribute("img")}" class="card-img-top img-size" alt="${this.getAttribute("title")}">
+          <div class="card-body">
+            <h3 class="card-title">${this.getAttribute("title")}</h3>
+            <h6 class="card-text">${this.getAttribute("description")}</h6>
+            <h4 class="card-text">${this.getAttribute("value")}</h4>
+            <a href="detalhesProduto.html" class="btn btn-success">Ver mais</a>
+          </div>
+        `;
+        this.appendChild(div);
+      }
+    }
+    
+    customElements.define("card-item", Card);
+    
+</script>
 
     <nav class="navbar navbar-expand-lg custom bg-dark navbar-dark fixed-top" style="height: 4em;; top: 0; left: 0;  width: 100%; ">
       <div class="container-fluid col-11">
@@ -23,13 +62,8 @@
               <a class="flex nav-link active outline-warning" aria-current="page" href="produtos.html">Produtos</a>
             </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" >Categorias</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="smartphones.html">Smartphones</a></li>
-                <li><a class="dropdown-item" href="notebooks.html">Notebooks</a></li>
-                <li><a class="dropdown-item" href="cameras.html">Cameras</a></li>
-              </ul>
+            <li class="nav-item">
+              <a class="flex nav-link active" aria-current="page" href="categoria.html" >Categoria</a>
             </li>
 
             <li class="nav-item">
@@ -85,105 +119,97 @@
           </div>
         </div>
 
-        <div class="produtos linha 1" style="margin-top: -13rem;">
-          <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 300px;">
-            <img src="IMG/celular-produto.jpg" class="card-img-top" style="height: 17rem;" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Xioami Redmi Note 12</h5>
-              <p class="card-text">Esse celular é muito bom!!!</p>
-              <h5>R$ 999,00</h5>
-              <a href="prom-ntl-smartphone.html" class="btn btn-primary">Ver Mais</a>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <card-item
+              img="IMG/celular-produto.jpg"
+              title="Celular"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
           </div>
 
-         <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-            <img src="IMG/multimetro-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-           <div class="card-body">
-              <h5 class="card-title">Multimetro</h5>
-             <p class="card-text">Esse multimetro é muito bom!!!</p>
-             <h5>R$ 200,00</h5>
-             <a href="det-prod-vend-multimetro.html" class="btn btn-primary">Ver Mais</a>
-            </div>
+          <div class="col-md-3">
+            <card-item
+              img="IMG/celular-produto.jpg"
+              title="Celular"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
           </div>
 
-          <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-            <img src="IMG/notebook-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-            <div class="card-body">
-             <h5 class="card-title">Notebook</h5>
-              <p class="card-text">Esse notebook é muito bom!!!</p>
-              <h5>R$ 2000,00</h5>
-              <a href="det-prod-vend-notebook.html" class="btn btn-primary">Ver Mais</a>
-            </div>
+          <div class="col-md-3">
+            <card-item
+              img="IMG/fone_sem_fio-produto.jpg"
+              title="Fone sem fio"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
+          </div>
         </div>
-
-      </div>
       <br><br>
       
-      <div class="produtos linha 2">
-        <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 300px;">
-          <img src="IMG/fone_sem_fio-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Headfone sem fio</h5>
-            <p class="card-text">Esse fone é muito bom!!!</p>
-            <h5>R$ 300,00</h5>
-            <a href="det-prod-vend-fone.html" class="btn btn-primary">Ver Mais</a>
-          </div>
+      <div class="row">
+        <div class="col-md-3">
+          <card-item
+              img="IMG/fone_sem_fio-produto.jpg"
+              title="Fone sem fio"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
+        </div>
+        
+        <div class="col-md-3">
+          <card-item
+              img="IMG/fone_sem_fio-produto.jpg"
+              title="Fone sem fio"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
         </div>
 
-       <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-          <img src="IMG/echopop-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-         <div class="card-body">
-            <h5 class="card-title">Echo Pop</h5>
-           <p class="card-text">Essa echo pop é muito boa!!!</p>
-           <h5>R$ 2000,00</h5>
-           <a href="prom-ntl-echopop.html" class="btn btn-primary">Ver Mais</a>
-          </div>
+        <div class="col-md-3">
+          <card-item
+              img="IMG/fone_sem_fio-produto.jpg"
+              title="Fone sem fio"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
         </div>
-
-        <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-          <img src="IMG/playstation4-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-          <div class="card-body">
-           <h5 class="card-title">Playstation</h5>
-            <p class="card-text">Esse playstation é muito bom!!!</p>
-            <h5>R$ 2300,00</h5>
-            <a href="detalheproduto.html" class="btn btn-primary">Ver Mais</a>
-          </div>
       </div>
       <br><br>
 
-      <div class="produtos linha 3">
-        <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 300px;">
-          <img src="IMG/monitor-produto.jpg" class="card-img-top"  style="height: 16rem;" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">MONITOR LG K5500</h5>
-            <p class="card-text">Esse monitor é muito bom!!!</p>
-            <h5>R$ 500,00</h5>
-            <a href="det-prod-vend-monitor.html" class="btn btn-primary">Ver Mais</a>
-          </div>
+      <div class="row">
+        <div class="col-md-3">
+          <card-item
+              img="IMG/fone_sem_fio-produto.jpg"
+              title="Fone sem fio"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
         </div>
 
-       <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-          <img src="IMG/teclado-produto.jpg" class="card-img-top" style="height: 16rem;" alt="...">
-         <div class="card-body">
-            <h5 class="card-title">Teclado</h5>
-           <p class="card-text">Esse teclado é muito bom!!!</p>
-           <h5>R$ 100,00</h5>
-           <a href="prom-ntl-teclado.html" class="btn btn-primary">Ver Mais</a>
-          </div>
+        <div class="col-md-3">
+          <card-item
+              img="IMG/fone_sem_fio-produto.jpg"
+              title="Fone sem fio"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
         </div>
 
-        <div class="card" style="width: 15rem; justify-items: center; display: inline-block; padding: 0px; margin-left: 50px;">
-          <img src="IMG/roteador-produto.jpg" class="card-img-top"  style="height: 16rem;"alt="...">
-          <div class="card-body">
-           <h5 class="card-title">Roteador</h5>
-            <p class="card-text">Esse roteado é muito bom!!!</p>
-            <h5>R$ 200,00</h5>
-            <a href="prom-ntl-roteador.html" class="btn btn-primary">Ver Mais</a>
-          </div>
+        <div class="col-md-3">
+          <card-item
+              img="IMG/fone_sem_fio-produto.jpg"
+              title="Fone sem fio"
+              description="skksksksksks"
+              value="R$3.000,00">
+            </card-item>
+        </div>
       </div>
-
-    </div>
-    <b><br><br>
+      </div>
+    <br><br><br>
 
     <footer class="bg-dark py-10 mt-10" style="width: 95rem; margin-left: -7rem;">
         <div class="footer-top">

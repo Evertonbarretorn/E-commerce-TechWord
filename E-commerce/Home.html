@@ -9,10 +9,57 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Pagina Inicial</title>
   </head>
+  <style>
+    .img-size {
+      width: 200px;
+      height: 190px;
+      background-color: gray;
+      margin-left: 50px;
+      margin-top: 5px;
+    }
+    .search-container {
+    display: flex;
+    width: 70px;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+    #searchInput {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #searchButton {
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color:  #fd7e14;
+    }
+
+    .product-results {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .product-card {
+        border: 1px solid #000000;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+        margin-top: 50rem;
+    }
+
+    .product-card img {
+        width: 200px;
+        height: 190px;
+    }
+  </style>
 
   <body class="bg-secondary-subtle" style="margin: 0;">
 
     <script>
+      //isso é das imagems do produto
       class Card extends HTMLElement {
         constructor() {
           super();
@@ -22,10 +69,11 @@
           const div = document.createElement("div");
           div.className = "card";
           div.innerHTML = `
-            <img src="${this.getAttribute("img")}" class="card-img-top" alt="${this.getAttribute("title")}">
+            <img src="${this.getAttribute("img")}" class="card-img-top img-size" alt="${this.getAttribute("title")}">
             <div class="card-body">
-              <h5 class="card-title">${this.getAttribute("title")}</h5>
-              <h3 class="card-text">${this.getAttribute("value")}</h3>
+              <h3 class="card-title">${this.getAttribute("title")}</h3>
+              <h6 class="card-text">${this.getAttribute("description")}</h6>
+              <h4 class="card-text">${this.getAttribute("value")}</h4>
               <a href="carrinho.html" class="btn btn-success">ADD AO CARRINHO</a>
             </div>
           `;
@@ -58,17 +106,60 @@
               <a class="flex nav-link active" aria-current="page" href="sobre.html">Sobre</a>
             </li>
 
-            <div class="input-group flex-nowrap" style="height: 1.7em; margin-top: 0.5em;">
-              <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Username" aria-describedby="addon-wrapping">
-              <button  type="submit" class="input-group-text" id="addon-wrapping"><i class='bx bx-search-alt'style="height: 2em; width: 2em; margin-top: 1em;"></i></button>
+            <div class="search-container">
+              <input type="text" id="searchInput" placeholder="Buscar produto...">
+              <button id="searchButton">Buscar</button>
             </div>
 
+            <div id="productResults" class="product-results"></div>
+            <script>
+              //função de busca e listagem
+              document.getElementById('searchButton').addEventListener('click', searchProducts);
+
+              function searchProducts() {
+                  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+                  fetch('http://localhost:3000/produtos')
+                    .then(response => response.json())
+                      .then(products => {
+                        const filteredProducts = products.filter(product => 
+                            product.title.toLowerCase().includes(searchTerm)
+                        );
+
+                        displayProducts(filteredProducts);
+                    });
+              }
+
+              function displayProducts(products) {
+                const productResults = document.getElementById('productResults');
+                productResults.innerHTML = '';
+
+                products.forEach(product => {
+                    const productCard = `
+                        <div class="product-card">
+                            <img src="${product.img}" alt="${product.title}">
+                            <h3>${product.title}</h3>
+                            <p>${product.description}</p>
+                            <p>R$${product.preco}</p>
+                            <a href="detalheProduto.html" class="btn btn-success">Ver mais</a>
+
+                        </div>
+                    `;
+                    productResults.innerHTML += productCard;
+                });
+              }
+            </script>
           </ul>
             <figure class="figure">
               <a href="carrinho.html"><i class='bx bxs-shopping-bags'style="color: #fd7e14; font-size: 30px; margin-right: 1em; margin-top: 0.7em;"></i></a>
             </figure>
 
             <form class="d-flex" role="button">
+              <a href="adm.html" role="button"><button type="button" class="btn text-light" style="background-color: #fd7e14; margin-right: 25px;">ADM</button></a>
+            </form>
+
+
+          <form class="d-flex" role="button">
             <a href="login.html" role="button"><button type="button" class="btn text-light" style="background-color: #fd7e14;">Entrar </button></a>
           </form>
         </div>
@@ -124,7 +215,6 @@
     </div> 
 
     <br><br><br>
-
     <div class="container">
       <div class="mais_vendidos">
         <h1 class="text-uppercase" style="font-size: large; font-family: Georgia, 'Times New Roman', Times, serif; color: black; margin-left: 60px;">
@@ -137,6 +227,7 @@
             <card-item
               img="IMG/cameracanon-camera.jpg"
               title="Camara digital Canon"
+              description="jdafajfajfjah"
               value="R$ 2.300,00">
             </card-item>
           </div>
@@ -145,6 +236,7 @@
             <card-item
               img="IMG/cameracanon-camera.jpg"
               title="Camera digital Canon mdl-01"
+              description="jdafajfajfjah"
               value="R$ 1.350,00">
             </card-item>
           </div>
@@ -153,6 +245,7 @@
             <card-item
               img="IMG/cameracanon-camera.jpg"
               title="Camera digital Canon mdl-02"
+              description="jdafajfajfjah"
               value="R$ 1.600,00">
             </card-item>
           </div>
@@ -161,6 +254,7 @@
             <card-item
               img="IMG/cameracanon-camera.jpg"
               title="Camara digital Canon mdl-04"
+              description="jdafajfajfjah"
               value="R$ 1.800,00">
             </card-item>
           </div>
@@ -168,7 +262,6 @@
         </div>
       </div>
     </div>
-    
     <br><br><br>
 
     <div class="container">
@@ -183,6 +276,7 @@
             <card-item
               img="IMG/galaxya23-smartphone.jpg"
               title="Smartphone Galaxy A23"
+              description="Smartphone de ta ta ta"
               value="R$ 2.300,00">
             </card-item>
           </div>
@@ -191,6 +285,7 @@
             <card-item
               img="IMG/galaxya34-smartphone.jpg"
               title="Smartphone Galaxy A34"
+              description="Smartphone de ta ta ta"
               value="R$ 2.800,00">
             </card-item>
           </div>
@@ -199,6 +294,7 @@
             <card-item
               img="IMG/galaxya23-smartphone.jpg"
               title="Smartphone Galaxy A23"
+              description="Smartphone de ta ta ta"
               value="R$ 2.300,00">
             </card-item>
           </div>
@@ -207,6 +303,7 @@
             <card-item
               img="IMG/galaxya34-smartphone.jpg"
               title="Smartphone Galaxy A34"
+              description="Smartphone de ta ta ta"
               value="R$ 2.800,00">
             </card-item>
           </div>
