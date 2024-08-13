@@ -1,0 +1,46 @@
+{
+  "produtos": [
+    {
+      "title": "aaaaaaaaa",
+      "description": "bbbbbbbb",
+      "preco": 1,
+      "img": "IMG/cameracanon-camera.jpg",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "img": "IMG/galaxya23-smartphone.jpg",
+      "title": "Smartphone Galaxy A23",
+      "description": "Smartphone com ótimo custo-benefício.",
+      "preco": 1300
+    },
+    {
+      "id": 3,
+      "img": "IMG/cameracanon-camera.jpg",
+      "title": "camera",
+      "description": "dddddddd",
+      "preco": 300
+    },
+    {
+      "id": 4,
+      "img": "IMG/galaxya23-smartphone.jpg",
+      "title": "celular Galaxy A23",
+      "description": "Smartphone com ótimo custo-benefício.",
+      "preco": 1300
+    },
+    {
+      "title": "notebook",
+      "description": "é da lenovo jjjj",
+      "preco": 2300,
+      "img": "IMG\notebooklenovo-notebook.jpg",
+      "id": 6
+    },
+    {
+      "title": "jjjjj",
+      "description": "ttgggbbggbb",
+      "preco": 11,
+      "img": "IMG\notebooklenovo-notebook.jpg",
+      "id": 7
+    }
+  ]
+}
