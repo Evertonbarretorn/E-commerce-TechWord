@@ -18,35 +18,16 @@
   .container{
     margin-left: 15rem;
   }
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+      }
+
 </style>
 
 <body class="bg-secondary-subtle">
-
-  <script>
-    class Card extends HTMLElement {
-      constructor() {
-        super();
-      }
-    
-      connectedCallback() {
-        const div = document.createElement("div");
-        div.className = "card";
-        div.innerHTML = `
-          <img src="${this.getAttribute("img")}" class="card-img-top img-size" alt="${this.getAttribute("title")}">
-          <div class="card-body">
-            <h3 class="card-title">${this.getAttribute("title")}</h3>
-            <h6 class="card-text">${this.getAttribute("description")}</h6>
-            <h4 class="card-text">${this.getAttribute("value")}</h4>
-            <a href="detalheProduto.html" class="btn btn-success">Ver mais</a>
-          </div>
-        `;
-        this.appendChild(div);
-      }
-    }
-    
-    customElements.define("card-item", Card);
-    
-</script>
 
     <nav class="navbar navbar-expand-lg custom bg-dark navbar-dark fixed-top" style="height: 4em;; top: 0; left: 0;  width: 100%; ">
       <div class="container-fluid col-11">
@@ -88,63 +69,54 @@
     </nav>
     <br><br><br><br>
 
-    <div class="container">
-      <div class="filtros">
-      <h1 class="text-uppercase" style="margin-left:4rem; display: flex;">Produtos Gerais</h1>
-          <h3 >FILTROS</h3>
-          <h6>Categorias</h6>
-          <form  action="#" method="post">
-            <input style="font-size: x-large;" type="checkbox" id="smartphones" name="smartphones">
-            <label for="smartphones">Smartphones</label><br>
-
-            <input style="font-size: x-large;" type="checkbox" id="notebooks" name="notebooks">
-            <label for="notebooks">Notebooks</label><br>
-
-            <input style="font-size: x-large;" type="checkbox" id="cameras" name="cameras">
-            <label for="cameras">Câmeras</label><br>
+    <div class="container" style="margin-left: 13.5rem">
+      <div class="filtros" style=" margin-left: -11rem;">
+      <h1 class="text-uppercase" style="display: flex;">Produtos Gerais</h1>
+      <h3>FILTROS</h3>
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Filtros</h5>
+          <form id="filtro-produtos">
+            <div class="mb-3">
+              <label for="preco" class="form-label">Faixa de Preço</label> <br>
+              <input type="range" id="preco" class="form-range" min="550" max="3000" step="50" style="width: 150px;"> <br>
+              <span id="preco-valor">Até R$ 3000</span>
+            </div>
           </form>
-          <br>
-          <div class="color">
-            <h3>Cores</h3>
-            <i class='bx bxs-circle' style='color:gold; font-size: x-large;'></i>
-            <i class='bx bxs-circle' style='color:silver; font-size: x-large;'></i>
-            <i class='bx bxs-circle' style='color:rgb(255, 144, 47); font-size: x-large;'></i>
-            <i class='bx bxs-circle' style='color:rgb(0, 0, 0); font-size: x-large;'></i>
-          </div>
-          <div class="colors">
-            <i class='bx bxs-circle' style='color:rgb(92, 177, 14); font-size: x-large;'></i>
-            <i class='bx bxs-circle' style='color:rgb(0, 42, 255); font-size: x-large;'></i>
-            <i class='bx bxs-circle' style='color:rgb(162, 47, 9); font-size: x-large;'></i>
-            <i class='bx bxs-circle' style='color:rgb(225, 60, 175); font-size: x-large;'></i>
-          </div>
         </div>
+      
 
-      <div class="container">
+
+      <div class="container" style="margin-top: -10rem; margin-left: 15rem; margin-bottom: 5rem;">
         <div class="row">
+
           <div class="col-md-3">
             <card-item
-              img="IMG/celular-produto.jpg"
-              title="Celular"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/celularxiaomi.jpg"
+              title="Celular Xiaomii"
+              description="Celular bom"
+              value="R$ 1.300,00"
+              id="12">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/celular-produto.jpg"
-              title="Celular"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/celulariphone.jpg"
+              title="Celular Iphone"
+              description="Celulr de rico"
+              value="R$3.000,00"
+              id="9">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/fone_sem_fio-produto.jpg"
-              title="Fone sem fio"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/celularsamsung.jpg"
+              title="Celular Samsung"
+              description="Celular de pobre"
+              value="R$ 1.500,00"
+              id="11">
             </card-item>
           </div>
         </div>
@@ -153,28 +125,31 @@
       <div class="row">
         <div class="col-md-3">
           <card-item
-              img="IMG/fone_sem_fio-produto.jpg"
-              title="Fone sem fio"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/notebookasus.jpg"
+              title="Notebook Asus"
+              description="Notebook de rico"
+              value="R$2.800,00"
+              id="6">
             </card-item>
         </div>
         
         <div class="col-md-3">
           <card-item
-              img="IMG/fone_sem_fio-produto.jpg"
-              title="Fone sem fio"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/notebookacer.jpg"
+              title="Notebook Acer"
+              description="Notebook bom"
+              value="R$2.600,00"
+              id="5">
             </card-item>
         </div>
 
         <div class="col-md-3">
           <card-item
-              img="IMG/fone_sem_fio-produto.jpg"
-              title="Fone sem fio"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/notebooklenovo.jpg"
+              title="Notebook Lenovo"
+              description="Notebook de pobre"
+              value="R$ 2.300,00"
+              id="7">
             </card-item>
         </div>
       </div>
@@ -183,95 +158,118 @@
       <div class="row">
         <div class="col-md-3">
           <card-item
-              img="IMG/fone_sem_fio-produto.jpg"
-              title="Fone sem fio"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/cameracanon.jpg"
+              title="Camera Canon"
+              description="Camera boa"
+              value="R$ 900,00"
+              id="1">
             </card-item>
         </div>
 
         <div class="col-md-3">
           <card-item
-              img="IMG/fone_sem_fio-produto.jpg"
-              title="Fone sem fio"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/camerasony.jpg"
+              title="Camera Sony"
+              description="Camera antiga"
+              value="R$ 700,00"
+              id="3">
             </card-item>
         </div>
 
         <div class="col-md-3">
           <card-item
-              img="IMG/fone_sem_fio-produto.jpg"
-              title="Fone sem fio"
-              description="skksksksksks"
-              value="R$3.000,00">
+              img="IMG/cameranikon.jpg"
+              title="Camera Nikon"
+              description="Camera boa tbm"
+              value="R$ 550,00"
+              id="4">
             </card-item>
         </div>
       </div>
       </div>
     <br><br><br>
 
-    <footer class="bg-dark py-10 mt-10" style="width: 95rem; margin-left: -7rem;">
-        <div class="footer-top">
-            <div class="container text-light">
-                <div class="row gy-4">
-                    <div class="col-lg-4">
-                      <p class="display-5 mb-3">TECH WORD</p>
-                      <div>
-                        <h1 class="display-5 mb-3" style="font-size: medium;">Conectamos você ao mundo da tecnologia. Fique por dentro dos nossos lançamentos!</h1>
-                        <div class="input-group flex-nowrap">
-                          <input type="text" class="form-control" placeholder="Cadastrar e-mail" aria-label="Username" aria-describedby="addon-wrapping">
-                          <button class="input-group-text text-dark" style="border-color: #fd7e14; background-color: #fd7e14;" type="submit">Cadastrar</button>
-                        </div>
+    <footer class="bg-dark py-10 mt-10" style="margin-left: -2rem; width: 100rem;">
+      <div class="footer-top" style="margin-left: -7rem; margin-top: 2rem;">
+          <div class="container text-light">
+              <div class="row gy-4">
+                  <div class="col-lg-4">
+                    <p class="display-5 mb-3">TECH WORD</p>
+                    <div>
+                      <h1 class="display-5 mb-3" style="font-size: medium;">Conectamos você ao mundo da tecnologia. Fique por dentro dos nossos lançamentos!</h1>
+                      <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control" placeholder="Cadastrar e-mail" aria-label="Username" aria-describedby="addon-wrapping">
+                        <button class="input-group-text text-dark" style="border-color: #fd7e14; background-color: #fd7e14;" type="submit">Cadastrar</button>
                       </div>
                     </div>
-                    <div class="col-lg-2">
-                        <h5 class="text-white">Marca</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="sobre.html">Sobre</a></li>
-                            <li><a href="sobre.html">Serviços</a></li>
-                            <li><a href="sobre.html">Preços</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2">
-                        <h5 class="text-white">Mais</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="sobre.html">Perguntas Frequentes</a></li>
-                            <li><a href="sobre.html">Política & Privacidade</a></li>
-                            <li><a href="sobre.html">Garantia</a></li>
-                            <li><a href="sobre.html">Envio</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4">
-                        <h5 class="text-white">Contato</h5>
-                        <ul class="list-unstyled" >
-                            <li>Endereço: Rua Marçal Me Dar Um Cem 244, Bairro Baixa da Égua Parelhas-RN</li>
-                            <li>Email: barretoeverton484@gmail.com</li>
-                            <li>Telefone: (84) 9 8738-7442</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom py-3 text-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p class="mb-0">© 2023 copyright all right reserved | Designed with <i
-                            class="bx bx-heart text-danger"></i> by <a
-                                href="https://github.com/Evertonbarretorn"
-                                class="text-white">Everton</a></p>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="social-icons">
-                            <a href="https://www.tiktok.com/@evertonazevedobar" style="color: #fd7e14;"><i class='bx bxl-tiktok'></i></a>
-                            <a href="https://twitter.com/evertonbarreto_/" style="color: #fd7e14;"><i class='bx bxl-twitter'></i></a>
-                            <a href="https://www.instagram.com/everton_barret/" style="color: #fd7e14;"><i class='bx bxl-instagram-alt'></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </footer>
+                  </div>
+                  <div class="col-lg-2">
+                      <h5 class="text-white">Marca</h5>
+                      <ul class="list-unstyled">
+                          <li><a href="sobre.html">Sobre</a></li>
+                          <li><a href="sobre.html">Serviços</a></li>
+                          <li><a href="sobre.html">Preços</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-lg-2">
+                      <h5 class="text-white">Mais</h5>
+                      <ul class="list-unstyled">
+                          <li><a href="sobre.html">Perguntas Frequentes</a></li>
+                          <li><a href="sobre.html">Política & Privacidade</a></li>
+                          <li><a href="sobre.html">Garantia</a></li>
+                          <li><a href="sobre.html">Envio</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-lg-4">
+                      <h5 class="text-white">Contato</h5>
+                      <ul class="list-unstyled" >
+                          <li>Endereço: Rua Marçal Me Dar Um Cem 244, Bairro Baixa da Égua Parelhas-RN</li>
+                          <li>Email: barretoeverton484@gmail.com</li>
+                          <li>Telefone: (84) 9 8738-7442</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom py-3 text-light" style="margin-left: -7rem;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <p class="mb-0">© 2023 copyright all right reserved | Designed with <i
+                          class="bx bx-heart text-danger"></i> by <a
+                              href="https://github.com/Evertonbarretorn"
+                              class="text-white">Everton</a></p>
+                  </div>
+                  <div class="col-md-2">
+                      <div class="social-icons">
+                          <a href="https://www.tiktok.com/@v3to_barreto" style="color: #fd7e14;"><i class='bx bxl-tiktok'></i></a>
+                          <a href="https://twitter.com/v3too_/" style="color: #fd7e14;"><i class='bx bxl-twitter'></i></a>
+                          <a href="https://www.instagram.com/v3t0_barreto/" style="color: #fd7e14;"><i class='bx bxl-instagram-alt'></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </footer>
+      <script src="card-item.js"></script>
+      <script>
+        document.getElementById('preco').addEventListener('input', function() {
+        const precoSelecionado = parseInt(this.value);
+        document.getElementById('preco-valor').textContent = `Preço: R$ ${precoSelecionado}`;
+        
+        const produtos = document.querySelectorAll('.produto');
+        
+        produtos.forEach(function(produto) {
+          const precoProduto = parseInt(produto.getAttribute('data-preco'));
+          
+          // Verifica se o preço do produto corresponde exatamente ao valor selecionado
+          if (precoProduto === precoSelecionado) {
+            produto.style.display = 'block'; // Mostra o produto
+          } else {
+            produto.style.display = 'none'; // Esconde o produto
+          }
+        });
+      });
+      </script>
 </body>
 </html>

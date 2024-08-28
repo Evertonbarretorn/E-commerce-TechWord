@@ -1,46 +1,88 @@
 {
   "produtos": [
     {
-      "title": "aaaaaaaaa",
-      "description": "bbbbbbbb",
-      "preco": 1,
-      "img": "IMG/cameracanon-camera.jpg",
+      "img": "IMG/cameracanon.jpg",
+      "title": "Camara Canon",
+      "description": "A Câmera Canon é ideal tanto para iniciantes quanto para profissionais, oferecendo uma ampla gama de funcionalidades como sensores de alta resolução, autofoco rápido e preciso, além de conectividade Wi-Fi para compartilhamento instantâneo. Com uma reputação sólida no mercado, esta câmera é perfeita para quem busca imagens nítidas e vídeos de qualidade cinematográfica",
+      "value": "900,00",
       "id": 1
     },
     {
-      "id": 2,
-      "img": "IMG/galaxya23-smartphone.jpg",
-      "title": "Smartphone Galaxy A23",
-      "description": "Smartphone com ótimo custo-benefício.",
-      "preco": 1300
+      "img": "IMG/cameragopro.jpg",
+      "title": "Camera Go pro",
+      "description": "A GoPro é a escolha definitiva para quem busca capturar ações em movimento, esportes radicais ou aventuras ao ar livre. Com sua construção robusta e à prova d'água, ela grava em alta resolução e oferece uma ampla gama de acessórios para montagens criativas. A GoPro é perfeita para criar conteúdos dinâmicos, seja em vídeos de alta velocidade ou fotografias subaquáticas.",
+      "value": "600,00",
+      "id": 2
     },
     {
-      "id": 3,
-      "img": "IMG/cameracanon-camera.jpg",
-      "title": "camera",
-      "description": "dddddddd",
-      "preco": 300
+      "img": "IMG/camerasony.jpg",
+      "title": "Camera Sony",
+      "description": "A Sony é pioneira em tecnologias como autofoco rápido e precisão em condições de baixa luz. As câmeras Sony são compactas e leves, sem comprometer a qualidade. Elas vêm com sensores de imagem excepcionais, recursos de gravação em 4K e conectividade sem fio, oferecendo uma experiência completa para fotógrafos de todos os níveis.",
+      "value": "700,00",
+      "id": 3
     },
     {
-      "id": 4,
-      "img": "IMG/galaxya23-smartphone.jpg",
-      "title": "celular Galaxy A23",
-      "description": "Smartphone com ótimo custo-benefício.",
-      "preco": 1300
+      "img": "IMG/cameranikon.jpg",
+      "title": "Camera Nikon",
+      "description": "A Nikon é sinônimo de inovação no mundo da fotografia, oferecendo câmeras com sensores avançados que capturam até os menores detalhes. Com seu design ergonômico e uma vasta gama de lentes intercambiáveis, a Câmera Nikon é perfeita para capturar desde retratos até paisagens deslumbrantes. Ideal para profissionais que exigem qualidade e durabilidade.",
+      "value": "550,00",
+      "id": 4
     },
     {
-      "title": "notebook",
-      "description": "é da lenovo jjjj",
-      "preco": 2300,
-      "img": "IMG\notebooklenovo-notebook.jpg",
+      "img": "IMG/notebookacer.jpg",
+      "title": "Notebook Acer",
+      "description": "Acer oferece notebooks que equilibram desempenho e custo-benefício, com processadores rápidos, gráficos decentes e design compacto. Perfeito para estudantes e profissionais que precisam de uma máquina confiável para tarefas diárias como navegação, edição de documentos e consumo de mídia.",
+      "value": "2.600,00",
+      "id": 5
+    },
+    {
+      "img": "IMG/notebookasus.jpg",
+      "title": "Notebook Asus",
+      "description": "Asus é sinônimo de inovação e confiabilidade, oferecendo notebooks que vão desde modelos ultrafinos até poderosos laptops para jogos. Equipados com os mais recentes processadores, gráficos de alto desempenho e designs resistentes, os notebooks Asus são ideais para quem busca uma máquina durável e eficiente, seja para trabalho criativo ou entretenimento intenso.",
+      "value": "2.800,00",
       "id": 6
     },
     {
-      "title": "jjjjj",
-      "description": "ttgggbbggbb",
-      "preco": 11,
-      "img": "IMG\notebooklenovo-notebook.jpg",
+      "img": "IMG/notebooklenovo.jpg",
+      "title": "Notebook Lenovo",
+      "description": "O Lenovo é projetado para usuários que precisam de um notebook confiável e versátil, seja para trabalho ou lazer. Com teclados ergonômicos, baterias de longa duração e desempenho eficiente, o Lenovo é ideal para quem busca produtividade em qualquer lugar. Suas opções variam desde ultrabooks leves até estações de trabalho potentes.",
+      "value": "2.300,00",
       "id": 7
+    },
+    {
+      "img": "IMG/notebooksamsung.jpg",
+      "title": "Notebook Samsung",
+      "description": "A Samsung é conhecida por suas telas vibrantes e designs ultrafinos. Os notebooks Samsung oferecem uma experiência visual impressionante, combinada com um desempenho rápido e eficiente. Combinando portabilidade e poder, eles são perfeitos para quem precisa de um notebook estiloso e potente para o dia a dia.",
+      "value": "2.100,00",
+      "id": 8
+    },
+    {
+      "img": "IMG/celulariphone.jpg",
+      "title": "Celular Iphone",
+      "description": "O iPhone é um ícone no mundo dos smartphones, oferecendo uma combinação incomparável de design sofisticado, desempenho robusto e ecossistema integrado. Com suas câmeras de ponta, segurança avançada com Face ID e um processador poderoso, o iPhone proporciona uma experiência única para quem valoriza inovação e qualidade.",
+      "value": "2.600,00",
+      "id": 9
+    },
+    {
+      "img": "IMG/celularmotorola.jpg",
+      "title": "Celular Motorola",
+      "description": "A Motorola é reconhecida pela durabilidade e confiabilidade de seus dispositivos. Com uma interface limpa e recursos como câmeras de alta resolução, baterias de longa duração e desempenho sólido, o Motorola oferece uma excelente relação custo-benefício. Ideal para quem busca um smartphone robusto para o uso diário.",
+      "value": "1.200,00",
+      "id": 10
+    },
+    {
+      "img": "IMG/celularsamsung.jpg",
+      "title": "Celular Samsung",
+      "description": "O Samsung é conhecido por suas telas AMOLED vibrantes, câmeras de alta qualidade e interface intuitiva. Com modelos que variam de intermediários a topo de linha, os celulares Samsung oferecem uma experiência de usuário fluida, com recursos avançados de multitarefa, fotografia profissional e segurança integrada. Ideal para quem busca um dispositivo versátil.",
+      "value": "1.500,00",
+      "id": 11
+    },
+    {
+      "img": "IMG/celularxiaomi.jpg",
+      "title": "Celular Xiaomi",
+      "description": "O Xiaomi combina design elegante com tecnologia avançada, oferecendo alta performance a um preço acessível. Equipado com câmeras de alta resolução, processadores poderosos e baterias de longa duração, o Xiaomi é perfeito para usuários que desejam um dispositivo confiável para trabalho, entretenimento e fotografia.",
+      "value": "1.300,00",
+      "id": 12
     }
   ]
 }

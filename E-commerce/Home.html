@@ -16,73 +16,13 @@
       margin-left: 50px;
       margin-top: 5px;
     }
-    .search-container {
-    display: flex;
-    width: 70px;
-    height: 30px;
-    margin-bottom: 20px;
-  }
-    #searchInput {
-        flex: 1;
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    #searchButton {
-        padding: 10px;
-        font-size: 16px;
-        cursor: pointer;
-        background-color:  #fd7e14;
-    }
-
-    .product-results {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .product-card {
-        border: 1px solid #000000;
-        padding: 10px;
-        width: 200px;
-        text-align: center;
-        margin-top: 50rem;
-    }
-
-    .product-card img {
-        width: 200px;
-        height: 190px;
+    .search-container{
+      margin-top: 7px;
     }
   </style>
 
   <body class="bg-secondary-subtle" style="margin: 0;">
 
-    <script>
-      //isso é das imagems do produto
-      class Card extends HTMLElement {
-        constructor() {
-          super();
-        }
-      
-        connectedCallback() {
-          const div = document.createElement("div");
-          div.className = "card";
-          div.innerHTML = `
-            <img src="${this.getAttribute("img")}" class="card-img-top img-size" alt="${this.getAttribute("title")}">
-            <div class="card-body">
-              <h3 class="card-title">${this.getAttribute("title")}</h3>
-              <h6 class="card-text">${this.getAttribute("description")}</h6>
-              <h4 class="card-text">${this.getAttribute("value")}</h4>
-              <a href="detalheProduto.html" class="btn btn-success">Ver mais</a>
-            </div>
-          `;
-          this.appendChild(div);
-        }
-      }
-      
-      customElements.define("card-item", Card);
-  </script>
-   
     <nav class="navbar navbar-expand-lg custom bg-dark navbar-dark fixed-top" style="height: 4em;; top: 0; left: 0;  width: 100%; ">
       <div class="container-fluid col-11">
         <a class="navbar-brand fs-1" href="#">Tech</a>
@@ -105,58 +45,16 @@
               <a class="flex nav-link active" aria-current="page" href="sobre.html">Sobre</a>
             </li>
 
-            <div class="search-container">
-              <input type="text" id="searchInput" placeholder="Buscar produto...">
-              <button id="searchButton">Buscar</button>
+
+            <div class="input-group flex-nowrap" style="height: 1.7em; margin-top: 0.5em;">
+              <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Username" aria-describedby="addon-wrapping">
+              <button  type="submit" class="input-group-text" id="addon-wrapping"><i class='bx bx-search-alt'style="height: 2em; width: 2em; margin-top: 1em;"></i></button>
             </div>
-
-            <div id="productResults" class="product-results"></div>
-            <script>
-              //função de busca e listagem
-              document.getElementById('searchButton').addEventListener('click', searchProducts);
-
-              function searchProducts() {
-                  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-
-                  fetch('http://localhost:3000/produtos')
-                    .then(response => response.json())
-                      .then(products => {
-                        const filteredProducts = products.filter(product => 
-                            product.title.toLowerCase().includes(searchTerm)
-                        );
-
-                        displayProducts(filteredProducts);
-                    });
-              }
-
-              function displayProducts(products) {
-                const productResults = document.getElementById('productResults');
-                productResults.innerHTML = '';
-
-                products.forEach(product => {
-                    const productCard = `
-                        <div class="product-card">
-                            <img src="${product.img}" alt="${product.title}">
-                            <h3>${product.title}</h3>
-                            <p>${product.description}</p>
-                            <p>R$${product.preco}</p>
-                            <a href="detalheProduto.html" class="btn btn-success">Ver mais</a>
-
-                        </div>
-                    `;
-                    productResults.innerHTML += productCard;
-                });
-              }
-            </script>
+           
           </ul>
             <figure class="figure">
               <a href="carrinho.html"><i class='bx bxs-shopping-bags'style="color: #fd7e14; font-size: 30px; margin-right: 1em; margin-top: 0.7em;"></i></a>
             </figure>
-
-            <form class="d-flex" role="button">
-              <a href="adm.html" role="button"><button type="button" class="btn text-light" style="background-color: #fd7e14; margin-right: 25px;">ADM</button></a>
-            </form>
-
 
           <form class="d-flex" role="button">
             <a href="login.html" role="button"><button type="button" class="btn text-light" style="background-color: #fd7e14;">Entrar </button></a>
@@ -224,37 +122,41 @@
         <div class="row">
           <div class="col-md-3">
             <card-item
-              img="IMG/cameracanon-camera.jpg"
-              title="Camara digital Canon"
-              description="jdafajfajfjah"
-              value="R$ 2.300,00">
+              img="IMG/cameracanon.jpg"
+              title="Camara Canon"
+              description="Qualidade de imagem superior e fácil manuseio."
+              value="R$ 900,00"
+              id="1">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/cameracanon-camera.jpg"
-              title="Camera digital Canon mdl-01"
-              description="jdafajfajfjah"
-              value="R$ 1.350,00">
+              img="IMG/celulariphone.jpg"
+              title="Iphone"
+              description="sinônimo de elegância e desempenho superior."
+              value="R$ 1.850,00"
+              id="9">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/cameracanon-camera.jpg"
-              title="Camera digital Canon mdl-02"
-              description="jdafajfajfjah"
-              value="R$ 1.600,00">
+              img="IMG/notebookasus.jpg"
+              title="Notebook Asus"
+              description="Inovação e durabilidade, ideal para profissionais e gamers."
+              value="R$ 2.800,00"
+              id="6">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/cameracanon-camera.jpg"
-              title="Camara digital Canon mdl-04"
-              description="jdafajfajfjah"
-              value="R$ 1.800,00">
+              img="IMG/celularmotorola.jpg"
+              title="Celular Motorola"
+              description="Confiança e durabilidade, para acompanhá-lo em todas as jornadas."
+              value="R$ 1.200,00"
+              id="10">
             </card-item>
           </div>
 
@@ -273,37 +175,41 @@
         <div class="row">
           <div class="col-md-3">
             <card-item
-              img="IMG/galaxya23-smartphone.jpg"
-              title="Smartphone Galaxy A23"
-              description="Smartphone de ta ta ta"
-              value="R$ 2.300,00">
+              img="IMG/celularxiaomi.jpg"
+              title="Celular Xiaomi"
+              description="Para atender todas as suas necessidades diárias."
+              value="R$ 1.300,00"
+              id="12">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/galaxya34-smartphone.jpg"
-              title="Smartphone Galaxy A34"
-              description="Smartphone de ta ta ta"
-              value="R$ 2.800,00">
+              img="IMG/cameragopro.jpg"
+              title="Go Pro"
+              description="Resistente, compacta e pronta para qualquer desafio."
+              value="R$ 600,00"
+              id="2">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/galaxya23-smartphone.jpg"
-              title="Smartphone Galaxy A23"
-              description="Smartphone de ta ta ta"
-              value="R$ 2.300,00">
+              img="IMG/notebooksamsung.jpg"
+              title="Notebook Samsung"
+              description="Tecnologia de ponta."
+              value="R$ 2.100,00"
+              id="8">
             </card-item>
           </div>
 
           <div class="col-md-3">
             <card-item
-              img="IMG/galaxya34-smartphone.jpg"
-              title="Smartphone Galaxy A34"
-              description="Smartphone de ta ta ta"
-              value="R$ 2.800,00">
+              img="IMG/celularsamsung.jpg"
+              title="Celular Samsung"
+              description="Qualidade e inovação em cada detalhe."
+              value="R$ 1.500,00"
+              id="11">
             </card-item>
           </div>
 
@@ -366,14 +272,15 @@
                 </div>
                 <div class="col-md-2">
                     <div class="social-icons">
-                        <a href="https://www.tiktok.com/@evertonazevedobar" style="color: #fd7e14;"><i class='bx bxl-tiktok'></i></a>
-                        <a href="https://twitter.com/evertonbarreto_/" style="color: #fd7e14;"><i class='bx bxl-twitter'></i></a>
-                        <a href="https://www.instagram.com/everton_barret/" style="color: #fd7e14;"><i class='bx bxl-instagram-alt'></i></a>
+                      <a href="https://www.tiktok.com/@v3to_barreto" style="color: #fd7e14;"><i class='bx bxl-tiktok'></i></a>
+                      <a href="https://twitter.com/v3too_/" style="color: #fd7e14;"><i class='bx bxl-twitter'></i></a>
+                      <a href="https://www.instagram.com/v3t0_barreto/" style="color: #fd7e14;"><i class='bx bxl-instagram-alt'></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
   </footer>
+  <script src="card-item.js"></script>
   </body>
 </html>
