@@ -74,9 +74,9 @@
           </div>
          
         </ul>
-          <figure class="figure">
-            <a href="carrinho.html"><i class='bx bxs-shopping-bags'style="color: #fd7e14; font-size: 30px; margin-right: 1em; margin-top: 0.7em;"></i></a>
-          </figure>
+        <figure class="figure">
+          <a href="carrinho.html"><i class='bx bxs-shopping-bags'style="color: #fd7e14; font-size: 30px; margin-right: 1em; margin-top: 0.7em;"></i></a>
+        </figure>
 
         <form class="d-flex" role="button">
           <a href="login.html" role="button"><button type="button" class="btn text-light" style="background-color: #fd7e14;">Entrar </button></a>
@@ -96,33 +96,52 @@
     <img src="https://img.icons8.com/?size=100&id=19295&format=png&color=000000" style="height:20px; width: 20px; margin-top: 0;" alt="">
     <h6 class="text-primary" style="margin-left: 480px; margin-top: -38px;">75% Querem</h6>
     <h5 id="produto-value"></h5>
-    <button id="add-to-cart" href="carrinho.html?id=${response.id}" class="btn btn-outline-danger">ADD Carrinho</button>
-  </div>
+    <button id="add-to-cart" class="btn btn-outline-danger">ADD Carrinho</button>
+</div>
 
-  <script type="module">
+<script type="module">
     let params = new URLSearchParams(document.location.search);
-    const response = await getData(params.get('id'));
-
-    document.getElementById('produto-title').innerHTML = response.title;
-    document.getElementById('produto-img').src = response.img;
-    document.getElementById('produto-description').innerHTML = response.description;
-    document.getElementById('produto-value').innerHTML = `R$ ${response.value}`;
-
-    document.getElementById('add-to-cart').addEventListener('click', () => {
-      document.location.href = "carrinho.html?id=${id}" + params.get('id');
-    });
+    const productId = params.get('id');
 
     async function getData(id) {
-      try {
-        const res = await fetch(`http://localhost:3000/produtos/${id}`);
-        const json = await res.json();
-        return json;
-
-      } catch(error) {
-        console.log(error);
-      }
+        try {
+            const res = await fetch(`http://localhost:3000/produtos/${id}`);
+            const json = await res.json();
+            return json;
+        } catch (error) {
+            console.log(error);
+        }
     }
-  </script>
+
+    async function renderProductDetails() {
+        const response = await getData(productId);
+        document.getElementById('produto-title').innerHTML = response.title;
+        document.getElementById('produto-img').src = response.img;
+        document.getElementById('produto-description').innerHTML = response.description;
+        document.getElementById('produto-value').innerHTML = `R$ ${response.value}`;
+
+        document.getElementById('add-to-cart').addEventListener('click', () => {
+            addToCart(response.id);
+        });
+    }
+
+    function addToCart(id) {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const produtoExistente = carrinho.find(item => item.id == id);
+
+        if (produtoExistente) {
+            produtoExistente.quantidade += 1;
+        } else {
+            carrinho.push({ id: id, quantidade: 1 });
+        }
+
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        document.location.href = "carrinho.html";
+    }
+
+    renderProductDetails();
+</script>
+
 
   <footer class="bg-dark py-10 mt-10" style="margin-top: 10rem;">
       <div class="footer-top">
